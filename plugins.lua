@@ -92,6 +92,22 @@ local plugins = {
         dapui.close()
       end
     end,
+  },
+  {
+    "zbirenbaum/copilot.lua",
+    cmd = "Copilot",
+    event = "InsertEnter",
+    config = function()
+      local copilot_cfg = require "custom.configs.copilot"
+      require("copilot").setup(copilot_cfg)
+    end,
+  },
+  {
+    "folke/trouble.nvim",
+    dependencies = { "nvim-tree/nvim-web-devicons" },
+  },
+  {
+    "nvim-tree/nvim-web-devicons",
   }
 }
 return plugins

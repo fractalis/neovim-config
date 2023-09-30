@@ -13,6 +13,16 @@ local function organize_imports()
   vim.lsp.buf.execute_command(params)
 end
 
+lspconfig.rust_analyzer.setup {
+  settings = {
+    ['rust-analyzer'] = {
+      diagnostics = {
+        enable = false;
+      }
+    }
+  }
+}
+
 lspconfig.tsserver.setup {
   on_attach = on_attach,
   capabilities = capabilities,
@@ -23,9 +33,22 @@ lspconfig.tsserver.setup {
   },
   commands = {
     OrganizeImports = {
-      organize_imports = {
-        description = "Organize Imports",
-      }
+      organize_imports,
+      description = "Organize Imports",
     }
   }
 }
+
+local function setup_diags()
+  vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
+    vim.lsp.diagnostic.on_publish_diagnostics,
+    {
+      virtual_text = false,
+      signs = true,
+      update_in_insert = false,
+      underline = true,
+    }
+  )
+end
+
+setup_diags()

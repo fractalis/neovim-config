@@ -25,4 +25,21 @@ M.crates = {
   }
 }
 
+M.trouble = {
+  n = {
+    ["<leader>xx"] = {
+      function()
+        require("trouble").open()
+      end,
+      "Toggle Trouble"
+    },
+    ["<leader>xw"] = {
+      function()
+        require("trouble").open("workspace_diagnostics")
+      end,
+      "Toggle Workspace Diagnostics"
+    }
+  }
+}
+
 return M
