@@ -108,6 +108,10 @@ local plugins = {
   },
   {
     "nvim-tree/nvim-web-devicons",
+  },
+  {
+    "dhruvasagar/vim-table-mode",
+    ft = {"markdown"}
   }
 }
 return plugins
