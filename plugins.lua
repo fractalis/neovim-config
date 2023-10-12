@@ -112,6 +112,10 @@ local plugins = {
   {
     "dhruvasagar/vim-table-mode",
     ft = {"markdown"}
+  },
+  {
+    "ron-rs/ron.vim",
+    ft = "ron",
   }
 }
 return plugins
